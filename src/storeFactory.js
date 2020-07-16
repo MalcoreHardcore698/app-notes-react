@@ -1,6 +1,7 @@
 import {
     createStore,
-    applyMiddleware
+    applyMiddleware,
+    compose
 } from 'redux'
 
 import logger from 'redux-logger'
@@ -15,4 +16,9 @@ export default (env === 'production')
         initialStore,
         applyMiddleware(logger)
     )
-    : createStore(reducers, initialStore)
+    : createStore(
+        reducers,
+        initialStore,
+        compose(
+            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        ))

@@ -6,11 +6,53 @@ export function createNote() {
     }
 }
 
-export function checkedTask(checked) {
+export function editNote() {
+    return {
+        type: C.EDIT_NOTE
+    }
+}
+
+export function deleteNote(noteId) {
+    return {
+        type: C.DELETE_NOTE,
+        payload: {
+            noteId
+        }
+    }
+}
+
+export function createTask(noteId) {
+    return {
+        type: C.CREATE_TASK,
+        payload: {
+            noteId
+        }
+    }
+}
+
+export function checkedTask(noteId, taskId, checked) {
     return {
         type: C.CHECKED_TASK,
         payload: {
-            checked
+            noteId, taskId, checked
+        }
+    }
+}
+
+export function editTask(noteId, taskId, edited) {
+    return {
+        type: C.EDIT_TASK,
+        payload: {
+            noteId, taskId, edited
+        }
+    }
+}
+
+export function setVisibleActions(noteId, isVisible) {
+    return {
+        type: C.VISIBLE_ACTIONS_NOTE,
+        payload: {
+            noteId, isVisible
         }
     }
 }

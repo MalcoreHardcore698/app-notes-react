@@ -1,6 +1,15 @@
 :root {
     --accent__color: #fefefe;
-    --accent__border: 1px solid #fefefe;
-    --accent__borderWidth: 1px;
-    --accent__borderColor: #fefefe;
+    --accent__colorCommon: #909090;
+    --accent__colorParagraph: #c7c7c7;
+    --accent__borderRadius: 5px;
+
+    --note__backgroundBlue: #e5f6ff;
+    --note__backgroundPurple: #f6f3ff;
+    --note__backgroundGreen: #e2f6e9;
+    --note__backgroundRed: #fff0e9;
+    --note__titleBlue: #2b71ff;
+    --note__titlePurple: #604bba;
+    --note__titleGreen: #3c9859;
+    --note__titleRed: #ff562d;
 }

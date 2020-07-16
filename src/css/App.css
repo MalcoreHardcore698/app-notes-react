@@ -1,9 +1,247 @@
+/*
+ * GENERAL
+ *
+*/
 .nop-app {
   margin: 0;
-  padding: 0;
+  padding: 25px;
   font: 1rem 'Roboto', sans-serif;
-  width: 100%;
-  height: 100%;
-  background: white;
+  width: calc(100% - 50px);
+  height: calc(100% - 50px);
+  min-height: calc(100vh - 50px);
+  background: #f5f7fa;
   line-height: normal;
+}
+
+.nop-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nop-header h1 {
+  color: black;
+  line-height: 1.25;
+  font-size: 5rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.nop-header h1:hover {
+  color: var(--accent__colorCommon);
+}
+
+.nop-main__notes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+  grid-gap: 25px;
+}
+
+.nop-notes-list__item {
+  position: relative;
+  background: white;
+  color: var(--accent__colorParagraph);
+  min-height: 256px;
+}
+
+.nop-notes-list__item.new-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 1px dashed #c7c7c7;
+  cursor: pointer;
+  border-radius: var(--accent__borderRadius);
+  font-size: 2rem;
+  transition: all .15s ease;
+}
+
+.nop-notes-list__item.new-note:hover {
+  border-color: #797979;
+  color: #797979;
+}
+
+.nop-notes-list__note-header {
+  display: grid;
+  grid-template-columns: 1fr 28px;
+  margin-top: 10px;
+  padding: 5px 15px;
+}
+
+.nop-notes-list__item .nop-notes-list__note-header h3 {
+  font-size: 1.25rem;
+  color: var(--accent__colorCommon);
+  font-weight: 500;
+}
+
+.nop-notes-list__item .nop-notes-list__note-header button {
+  font-size: 1.25rem;
+  margin: 0;
+  padding: 0;
+  color: #dadada;
+  transition: all .15s ease;
+}
+
+.nop-notes-list__item .nop-notes-list__note-header button.visible,
+.nop-notes-list__item .nop-notes-list__note-header button:hover {
+  color: var(--accent__colorCommon);
+}
+
+.nop-notes-list__note-actions {
+  position: absolute;
+  top: 0;
+  right: -132px;
+  background: white;
+  border-radius: 5px;
+  width: 128px;
+  z-index: 5;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, .075);
+  overflow: hidden;
+}
+
+.nop-notes-list__note-actions li a {
+  display: flex;
+  padding: 10px 15px 10px 10px;
+  width: 100%;
+}
+
+.nop-notes-list__note-actions li {
+  cursor: pointer;
+  padding: 10px 25px 10px 10px;
+  transition: all .15s ease;
+}
+
+.nop-notes-list__note-actions li:first-child {
+  padding: 0;
+}
+
+.nop-notes-list__note-actions li:hover {
+  color: var(--accent__colorParagraph);
+  background: #f9f9f9;
+}
+
+.nop-notes-list__item p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.nop-notes-list__tasks-list {
+  display: grid;
+  margin-top: 5px;
+}
+
+.nop-tasks-list__item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  grid-gap: 5px;
+  border-top: 1px solid rgba(0, 0, 0, .095);
+  color: #c7c7c7;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.nop-tasks-list__item.new-task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.nop-tasks-list__item .task-edit {
+  color: #c7c7c7;
+  padding: 0 0 0 15px;
+  transition: all .15s ease;
+}
+
+.nop-tasks-list__item .content {
+  display: grid;
+  grid-template-columns: 1fr 28px;
+  padding: 5px 15px 5px 10px;
+  transition: all .15s ease;
+}
+
+.nop-tasks-list__item:hover {
+  background: #f9f9f9;
+}
+
+.nop-tasks-list__item:first-child {
+  border-top: none;
+}
+
+.checkmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ececec;
+  border-radius: var(--accent__borderRadius);
+  margin: 5px;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.nop-tasks-list__item.checked .checkmark svg {
+  color: white;
+  font-size: .785rem;
+}
+
+.nop-tasks-list__item:hover .task-edit,
+.nop-tasks-list__item:hover .content {
+  color: var(--accent__colorCommon);
+}
+
+.nop-tasks-list__item.checked .content {
+  text-decoration: line-through;
+  color: #ececec;
+}
+
+.nop-tasks-list__item.checked .checkmark {
+  background: #31ad31;
+}
+
+/*
+ * COLOR SETUP
+ *
+*/
+
+/* Blue */
+.nop-notes-list__item.blue {
+  background: var(--note__backgroundBlue);
+}
+
+.nop-notes-list__item.blue h3 {
+  color: var(--note__titleBlue);
+}
+
+/* Purple */
+.nop-notes-list__item.purple {
+  background: var(--note__backgroundPurple);
+  background: #f6f3ff;
+}
+
+.nop-notes-list__item.purple h3 {
+  color: var(--note__titlePurple);
+  color: #604bba;
+}
+
+/* Green */
+.nop-notes-list__item.green {
+  background: var(--note__backgroundGreen);
+  background: #e2f6e9;
+}
+
+.nop-notes-list__item.green h3 {
+  color: var(--note__titleGreen);
+  color: #3c9859;
+}
+
+/* Red */
+.nop-notes-list__item.red {
+  background: var(--note__backgroundRed);
+  background: #fff0e9;
+}
+
+.nop-notes-list__item.red h3 {
+  color: var(--note__titleRed);
+  color: #ff562d;
 }
