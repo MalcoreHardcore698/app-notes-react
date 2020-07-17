@@ -1,4 +1,6 @@
 export default {
+    LOAD_NOTES: 'LOAD_NOTES',
+    
     CREATE_NOTE: 'CREATE_NOTE',
     EDIT_NOTE: 'EDIT_NOTE',
     DELETE_NOTE: 'DELETE_NOTE',

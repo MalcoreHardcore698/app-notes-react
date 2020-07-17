@@ -1,13 +1,16 @@
 import { combineReducers } from 'redux'
 import C from './types'
+import { v4 as uuidv4 } from 'uuid'
 
 const notesReducer = (state = [], action) => {
     switch (action.type) {
+        case C.LOAD_NOTES:
+            return action.payload.notes
         case C.CREATE_NOTE:
             return [
                 ...state,
                 {
-                    id: state.length,
+                    id: uuidv4(),
                     title: 'New Note',
                     tasks: [],
                     visibleActions: false,
@@ -35,7 +38,7 @@ const notesReducer = (state = [], action) => {
                     tasks: [
                         ...note.tasks,
                         {
-                            id: note.tasks.length,
+                            id: uuidv4(),
                             title: 'New Task',
                             edited: false,
                             completed: false

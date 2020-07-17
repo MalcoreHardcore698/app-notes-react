@@ -32,6 +32,31 @@
   color: var(--accent__colorCommon);
 }
 
+.nop-header__save,
+.nop-notes-list__item.new-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--accent__borderRadius);
+  background: var(--accent__backgroundButton);
+  color: var(--accent__colorButton);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.nop-header__save[disabled] {
+  background: var(--accent__backgroundDisableButton);
+  color: var(--accent__colorDisableButton);
+  cursor: default;
+}
+
+.nop-header__save {
+  margin-left: 25px;
+  height: 80px;
+  width: 80px;
+}
+
 .nop-main__notes-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
@@ -45,21 +70,10 @@
   min-height: 256px;
 }
 
-.nop-notes-list__item.new-note {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-  border: 1px dashed #c7c7c7;
-  cursor: pointer;
-  border-radius: var(--accent__borderRadius);
-  font-size: 2rem;
-  transition: all .15s ease;
-}
-
+.nop-header__save:hover:not([disabled]),
 .nop-notes-list__item.new-note:hover {
-  border-color: #797979;
-  color: #797979;
+  background: var(--accent__backgroundHoverButton);
+  color: var(--accent__colorHoverButton);
 }
 
 .nop-notes-list__note-header {

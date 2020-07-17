@@ -1,5 +1,14 @@
 import C from './types'
 
+export function loadNotes(notes) {
+    return {
+        type: C.LOAD_NOTES,
+        payload: {
+            notes
+        }
+    }
+}
+
 export function createNote() {
     return {
         type: C.CREATE_NOTE
