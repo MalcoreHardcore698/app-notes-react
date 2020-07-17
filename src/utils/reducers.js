@@ -48,9 +48,28 @@ const notesReducer = (state = [], action) => {
                     ...note
                 }))
         case C.EDIT_TASK:
-            return state
+            return state.map(note => (note.id === action.payload.noteId)
+                ? ({
+                    ...note,
+                    tasks: note.tasks.map(task => task.id === action.payload.taskId
+                        ? ({
+                            ...task,
+                            title: action.payload.title ? action.payload.title : task.title,
+                            edited: !task.edited
+                        }) : ({
+                            ...task
+                        }))
+                }) : ({
+                    ...note
+                }))
         case C.DELETE_TASK:
-            return state
+            return state.map(note => (note.id === action.payload.noteId)
+                ? ({
+                    ...note,
+                    tasks: note.tasks.filter(task => task.id !== action.payload.taskId)
+                }) : ({
+                    ...note
+                }))
         case C.CHECKED_TASK:
             return state.map(note => (note.id === action.payload.noteId)
                 ? ({

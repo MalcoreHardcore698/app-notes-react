@@ -63,6 +63,19 @@
   grid-gap: 25px;
 }
 
+.nop-note {
+  display: grid;
+}
+
+.nop-message {
+  background: white;
+  color: var(--accent__colorParagraph);
+  border-radius: var(--accent__borderRadius);
+  padding: 10px;
+  margin: 15px 0;
+  opacity: .75;
+}
+
 .nop-notes-list__item {
   position: relative;
   background: white;
@@ -83,10 +96,16 @@
   padding: 5px 15px;
 }
 
+.nop-notes-list__item .nop-notes-list__note-header input,
 .nop-notes-list__item .nop-notes-list__note-header h3 {
   font-size: 1.25rem;
   color: var(--accent__colorCommon);
   font-weight: 500;
+}
+
+.nop-notes-list__item .nop-notes-list__note-header input {
+  padding: 0;
+  font-style: italic;
 }
 
 .nop-notes-list__item .nop-notes-list__note-header button {
@@ -147,7 +166,7 @@
 
 .nop-tasks-list__item {
   display: grid;
-  grid-template-columns: 28px 1fr;
+  grid-template-columns: 56px 1fr;
   grid-gap: 5px;
   border-top: 1px solid rgba(0, 0, 0, .095);
   color: #c7c7c7;
@@ -162,9 +181,17 @@
   padding: 10px;
 }
 
-.nop-tasks-list__item .task-edit {
-  color: #c7c7c7;
+.nop-tasks-list__item .manage {
+  display: grid;
+  grid-template-columns: 16px 16px;
+  grid-gap: 10px;
   padding: 0 0 0 15px;
+}
+
+.nop-tasks-list__item .manage button {
+  color: #c7c7c7;
+  padding: 0;
+  width: 100%;
   transition: all .15s ease;
 }
 
@@ -175,8 +202,19 @@
   transition: all .15s ease;
 }
 
+.nop-tasks-list__item .content input {
+  width: calc(100% - 10px);
+  font-size: 1rem;
+  padding-left: 0px;
+}
+
+.nop-tasks-list__item.edited,
 .nop-tasks-list__item:hover {
   background: #f9f9f9;
+}
+
+.nop-tasks-list__item.edited .content input {
+  font-style: italic;
 }
 
 .nop-tasks-list__item:first-child {
@@ -187,6 +225,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 18px;
+  align-self: center;
   background: #ececec;
   border-radius: var(--accent__borderRadius);
   margin: 5px;
@@ -199,7 +239,7 @@
   font-size: .785rem;
 }
 
-.nop-tasks-list__item:hover .task-edit,
+.nop-tasks-list__item:hover .manage button,
 .nop-tasks-list__item:hover .content {
   color: var(--accent__colorCommon);
 }

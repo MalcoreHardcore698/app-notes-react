@@ -48,11 +48,20 @@ export function checkedTask(noteId, taskId, checked) {
     }
 }
 
-export function editTask(noteId, taskId, edited) {
+export function editTask(noteId, taskId, title, edited) {
     return {
         type: C.EDIT_TASK,
         payload: {
-            noteId, taskId, edited
+            noteId, taskId, title, edited
+        }
+    }
+}
+
+export function deleteTask(noteId, taskId) {
+    return {
+        type: C.DELETE_TASK,
+        payload: {
+            noteId, taskId
         }
     }
 }

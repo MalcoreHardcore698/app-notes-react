@@ -17,19 +17,19 @@ export default ({ setDisableSave }) => {
 
     return (
         <React.Fragment>
-            <ul className="nop-main__notes-list">
+            <div className="nop-main__notes-list">
                 {state.notes && state.notes.map(note => <Note
                     key={note.id}
                     note={note}
                     setDisableSave={setDisableSave}
                 />)}
-                <li
+                <div
                     className="nop-notes-list__item new-note"
                     onClick={() => handlerCreateNote()}
                 >
                     <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-                </li>
-            </ul>
+                </div>
+            </div>
         </React.Fragment>
     )
 }
