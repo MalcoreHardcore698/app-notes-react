@@ -2,7 +2,9 @@
     --accent__color: #fefefe;
     --accent__colorCommon: #909090;
     --accent__colorParagraph: #c7c7c7;
+    --accent__border: 1px solid rgba(0, 0, 0, .075);
     --accent__borderRadius: 5px;
+    --accent__boxShadow: 0 0 1px 0 rgba(0, 0, 0, .05);
 
     --accent__backgroundButton: #f0f2f5;
     --accent__colorButton: #d0d0d0;

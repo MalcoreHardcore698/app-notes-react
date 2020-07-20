@@ -15,9 +15,12 @@ export function createNote() {
     }
 }
 
-export function editNote() {
+export function editNote(noteId, title) {
     return {
-        type: C.EDIT_NOTE
+        type: C.EDIT_NOTE,
+        payload: {
+            noteId, title
+        }
     }
 }
 

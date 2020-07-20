@@ -1,20 +1,27 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisH, faPlus } from '@fortawesome/free-solid-svg-icons'
 import Task from './Task'
 
 import {
+    editNote,
     deleteNote,
     createTask,
     setVisibleActions
 } from '../../utils/actions'
 
 export default ({ edited, note, setDisableSave }) => {
+    const state = useSelector(state => state)
     const dispatch = useDispatch()
     // eslint-disable-next-line
     const [title, setTitle] = useState(null)
+
+    const handlerSave = () => {
+        dispatch(editNote(note.id, title))
+        setDisableSave(true)
+    }
 
     const handlerCreateTask = () => {
         dispatch(createTask(note.id))
@@ -72,9 +79,12 @@ export default ({ edited, note, setDisableSave }) => {
                 </ul>
             </div>
 
-            {edited && (<div className="nop-message">
-                <p>Все ваши действия автоматически сохраняются, но будут применены лишь после нажатия кнопки сверху.</p>
-            </div>)}
+            {edited && (<button
+                className="nop-note__save"
+                onClick={handlerSave}
+            >
+                Сохранить изменения
+            </button>)}
         </React.Fragment>
     )
 }

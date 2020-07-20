@@ -33,16 +33,24 @@
 }
 
 .nop-header__save,
+.nop-note__save,
 .nop-notes-list__item.new-note {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: var(--accent__borderRadius);
-  background: var(--accent__backgroundButton);
+  background: white;
+  border: var(--accent__border);
+  box-shadow: var(--accent__boxShadow);
   color: var(--accent__colorButton);
   font-size: 2rem;
   cursor: pointer;
   transition: all .15s ease;
+}
+
+.nop-note__save {
+  font-size: 1rem;
+  margin-top: 15px;
 }
 
 .nop-header__save[disabled] {
@@ -79,6 +87,8 @@
 .nop-notes-list__item {
   position: relative;
   background: white;
+  border: var(--accent__border);
+  box-shadow: var(--accent__boxShadow);
   color: var(--accent__colorParagraph);
   min-height: 256px;
 }
